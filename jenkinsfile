@@ -1,0 +1,19 @@
+node()
+{
+    stage("checkout")
+    {
+        git 'https://github.com/bathulashankara/bangaramg.git'
+    }
+    stage("maven")
+    {
+        sh 'mvn clean compile'
+    }
+    stage("Package")
+    {
+        sh 'mvn package'
+    }
+    stage("Install")
+    {
+        sh 'mvn install'
+    }
+}
